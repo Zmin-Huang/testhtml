@@ -1,0 +1,64 @@
+.memberpart {
+    width: 100%;
+    height: 1000px;
+}
+
+.login {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    background-color: pink;
+}
+
+.frame {
+    width: 500px;
+    margin: auto;
+}
+
+form {
+    display: block;
+}
+
+.btn {
+    width: 500px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 500px;
+    height: 50px;
+}
+
+.forget {
+    width: 100%;
+    margin-bottom: 10%;
+    top: 10px;
+}
+
+#regis {
+    float: right;
+}
+
+#forgetps {
+    float: left;
+}
+
+.third {
+    width: 25%;
+    margin-right: 10%;
+    height: 40px;
+    float: left inline-start;
+}
+
+.icon {
+    float: left;
+    margin-left: 10%;
+}
+
+.three {
+    width: 25%;
+    height: 40px;
+    margin-left: 10;
+    float: right;
+}
