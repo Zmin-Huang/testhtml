@@ -17,6 +17,8 @@ public class MemberService {
 
 	public MemberBean login(String name, String password) {
 		MemberBean user = memberRepository.queryByNameAndPassword(name, password);
+		System.out.println(user.getTel());
+		System.out.println(user.getMemmail());
 		return user;
 	}
 

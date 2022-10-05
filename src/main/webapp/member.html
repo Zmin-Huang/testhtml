@@ -130,7 +130,7 @@
 	</div>
 	<script>
 		var session = window.sessionStorage;
-		async function prop() {
+		function prop() {
 			let names = document.getElementById('name').value;
 			let passwords = document.getElementById('password').value;
 			if (names == "") {
@@ -142,9 +142,9 @@
 				window.alert("請輸入密碼");
 				return;
 			}
-			
+			//var p;
+				var tempw;
 			if( names && passwords){
-				
 			var datas = {
 					name:names,
 					password:passwords
@@ -152,24 +152,34 @@
 				var p = $.ajax({
 		                type: "get",
 		                url: "/api/members/"+names+"/"+passwords,
-		                dataType:"json",
+		                async:false,
 						success:function(w){
 							alert("登入成功");
-							
+				session.setItem("name",w.name);
+				session.setItem("password",w.password);
+				session.setItem("tel",w.tel);
+				session.setItem("id",w.memberid);
+				session.setItem("memmail",w.memmail);
 								$.ajax({
 									type:"get",
 									url:"/mail/"+w.memmail
 								})
+								
 							
+						},
+						error:function(){
+							alert("登入失敗");
 						}
 		            });
-				var result = await p;
-				session.setItem("name",result.name);
-				session.setItem("password",result.password);
-				session.setItem("tel",result.tel);
-				session.setItem("id",result.memberid);
-				session.setItem("memmail",result.memmail);
+				//await p;
+				//function set(){
+				//session.setItem("name",p.name);
+				//session.setItem("password",p.password);
+				//session.setItem("tel",p.tel);
+				//session.setItem("id",p.memberid);
+				//session.setItem("memmail",p.memmail);
 				
+			//	}
 
 					
 				}

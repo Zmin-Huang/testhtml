@@ -140,9 +140,13 @@
 								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
 					
 								<textarea class="review_form_text" name="review_form_text" placeholder="Message"></textarea>
-								<button type="submit" class="review_form_button" onclick="comment()">send message</button>
+								<button type="submit" class="review_form_button" onclick="comment()">提出評論</button>
+								<br>
+								
 								</div>
 							</form>
+							<button  id="alc" class="review_form_button" onclick="showall()">顯示所有評論</button>
+							<div id="allcom"></div>
 						</div>
 					</div>
 				</div>
@@ -316,6 +320,19 @@ function comment(){
 		type:"get",
 		url:"/comment/"+u.getItem("memmail")
 	});
+}
+
+function showall(){
+	$.ajax({
+		type:"get",
+		url:"/allcomment",
+		success:function(w){
+				for(i=0;i<w.length;i++){
+			document.getElementById("allcom").innerHTML +=
+				`<p>${w[i].content}</p>`};
+		}
+	});
+				document.getElementById("alc").setAttribute("disabled","")
 }
 </script>
 

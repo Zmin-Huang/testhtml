@@ -21,9 +21,8 @@ public class MemberController {
 	@GetMapping("/member")
 	public String login(MemberBean bean) {
 		if (memberService.login(bean.getName(),bean.getPassword()) != null) {
-			System.out.println(bean.getName());
-			System.out.println(bean.getPassword());
-			System.out.println(bean.getTel());
+			System.out.println(bean);
+			
 			return "redirect:/index.html";
 		}
 		return "redirect:/member.html";
