@@ -160,12 +160,13 @@
 				session.setItem("tel",w.tel);
 				session.setItem("id",w.memberid);
 				session.setItem("memmail",w.memmail);
+				session.setItem("birth",w.birth);
 								$.ajax({
 									type:"get",
 									url:"/mail/"+w.memmail
 								})
 								
-							
+		
 						},
 						error:function(){
 							alert("登入失敗");

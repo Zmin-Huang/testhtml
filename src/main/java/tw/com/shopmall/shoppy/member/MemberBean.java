@@ -26,7 +26,16 @@ public class MemberBean {
 	private String tel;
 	@Column(name = "memmail")
 	private String memmail;
-	
+	@Column(name = "birth")
+	private String birth;
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
 
 	public String getMemmail() {
 		return memmail;
