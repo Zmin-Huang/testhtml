@@ -481,8 +481,8 @@
 		</div>
 	</div>
 
-	<!-- Newsletter -->
 	<br><br>
+	<!-- Newsletter -->
 
 	<div class="newsletter">
 		<div class="newsletter_content">
@@ -492,7 +492,7 @@
 					<div class="col">
 						<div class="section_title_container text-center">
 							<div class="section_subtitle">Flirtatious</div>
-							<div class="section_title">訂閱即可獲得8折優惠!</div>
+							<div class="section_title" id="disword">輸入即享優惠</div>
 						</div>
 					</div>
 				</div>
@@ -500,12 +500,11 @@
 					<div class="col-lg-10 offset-lg-1">
 						<div class="newsletter_form_container">
 							<form action="#">
-								<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
-								<button type="submit" class="newsletter_button">訂閱</button>
+								<input type="email"  required="required" placeholder="馬上領取優惠" size="100" id="dis">
+								<button type="submit" class="newsletter_button" id="discount" onclick="great()">送出</button>
 							</form>
 						</div>
-						<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
-					</div>
+						
 				</div>
 			</div>
 		</div>
@@ -569,8 +568,28 @@ var apfoot = document.createElement('li');
 apfoot.innerHTML = "<a href='promote.html'>推薦商品</a>";
 var footul = document.getElementById("footul");
 footul.appendChild(ap);
+
+document.getElementById("dis").value = u.getItem("memmail");
+if(u.getItem("discount")){
+	document.getElementById("dis").setAttribute("disabled","");
+	document.getElementById("discount").setAttribute("disabled","");
+	document.getElementById("disword").innerHTML = "<span>您已取得優惠囉!</span>";
 }
 
+}
+
+</script>
+<script>
+function great(){
+	$.ajax({
+		type:"get",
+		url:"/discount/"+window.sessionStorage.getItem("memmail"),
+		success:function(){
+			alert("優惠碼已經寄給您囉!");
+		}
+	});
+	window.sessionStorage.setItem("discount","PEKO");
+}
 </script>
 
 <script src="js/jquery-3.2.1.min.js"></script>

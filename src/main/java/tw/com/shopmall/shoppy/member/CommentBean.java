@@ -18,7 +18,7 @@ public class CommentBean {
 	@Column(name = "memberid")
 	private Integer memberid;
 	@Column(name = "date")
-	private java.util.Date date;
+	private String date;
 	public Integer getComid() {
 		return comid;
 	}
@@ -37,10 +37,10 @@ public class CommentBean {
 	public void setMemberid(Integer memberid) {
 		this.memberid = memberid;
 	}
-	public java.util.Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(java.util.Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 }

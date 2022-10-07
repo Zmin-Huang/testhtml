@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,7 +232,7 @@
 									<div class="master payment_option"><a href="#"><img src="images/master.jpg"
 												alt=""></a></div>
 								</div>
-								<button class="cart_total_button">送出訂單</button>
+								<button class="cart_total_button" onclick="pay()">送出訂單</button>
 							</div>
 						</div>
 					</div>
@@ -345,6 +346,12 @@
 	</footer>
 </div>
 
+<script>
+function pay(){
+	window.open("http://localhost:8080/directing.html");
+	window.location.href = "http://localhost:8080/";
+}
+</script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>

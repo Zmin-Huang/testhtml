@@ -1,17 +1,14 @@
 package tw.com.shopmall.shoppy.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import tw.com.shopmall.shoppy.member.CommentBean;
-import tw.com.shopmall.shoppy.member.MemberBean;
 import tw.com.shopmall.shoppy.service.CommentService;
 
 @RestController
@@ -25,5 +22,12 @@ public class CommentController {
 		List<CommentBean> bean = commentService.select(null);
 		return bean;
 	}
-	
+	@PostMapping("/newcomment")
+	private void insertcomment(String content,Integer memberid,String date) {
+		CommentBean bean = new CommentBean();
+		bean.setContent(content);
+		bean.setMemberid(memberid);
+		bean.setDate(date);
+		commentService.insert(bean);
+	}
 }

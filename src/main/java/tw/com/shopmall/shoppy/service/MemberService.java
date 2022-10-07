@@ -40,7 +40,7 @@ public class MemberService {
 	public MemberBean insert(MemberBean bean) {
 		MemberBean result = null;
 		if (bean != null && bean.getName() != null) {
-			if ((memberRepository.queryByName(bean.getName()) == null)) {
+			if (memberRepository.queryByName(bean.getName()) == null) {
 				return memberRepository.save(bean);
 			}
 		}

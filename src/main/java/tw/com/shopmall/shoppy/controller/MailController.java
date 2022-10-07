@@ -14,15 +14,19 @@ public class MailController {
  private MailService mailService;
  
  @GetMapping("/mail/{memmail}")
- public String hello(@PathVariable String memmail){
+ public void hello(@PathVariable String memmail){
 	 mailService.prepareAndSend(memmail,"Sample mail subject");
-  return "redirect:/fix.html";
  }
  
  @GetMapping("/comment/{memmail}")
  public String comment(@PathVariable String memmail){
 	 mailService.comments(memmail,"Sample mail subject");
   return "redirect:/fix.html";
+ }
+ @GetMapping("/discount/{memmail}")
+ public String discount(@PathVariable String memmail){
+	 mailService.discount(memmail,"Sample mail subject");
+  return "redirect:/index.html";
  }
  
 

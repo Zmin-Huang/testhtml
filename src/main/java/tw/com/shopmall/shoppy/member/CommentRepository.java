@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CommentRepository extends JpaRepository<CommentBean, Integer>{
-
+	CommentBean queryByContent(String content);
 }

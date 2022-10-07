@@ -49,5 +49,21 @@ public class MailService {
               // runtime exception; compiler will not force you to handle it
           }
      }
+    public void discount(String recipient, String message) {
+        MimeMessagePreparator messagePreparator = mimeMessage -> {
+              MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+              messageHelper.setFrom("Flirtatious");
+              messageHelper.setTo(recipient);
+              messageHelper.setSubject("專屬優惠碼");
+              messageHelper.setText("E4E8IXDT101");
+          };
+          try {
+              mailSender.send(messagePreparator);
+              //System.out.println("sent");
+          } catch (MailException e) {
+              //System.out.println(e);
+              // runtime exception; compiler will not force you to handle it
+          }
+     }
  
 }

@@ -30,8 +30,8 @@ public class CommentService {
 	}
 	public CommentBean insert(CommentBean bean) {
 		CommentBean result = null;
-		if(bean!=null && bean.getComid()!=null) {
-			if(!commentRepository.existsById(bean.getComid())) {
+		if(bean!=null && bean.getContent()!=null) {
+			if(commentRepository.queryByContent(bean.getContent())==null) {
 				return commentRepository.save(bean);
 			}
 			
